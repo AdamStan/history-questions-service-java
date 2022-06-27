@@ -1,0 +1,9 @@
+version: "3.9"
+
+# to run this use command: docker-compose -f docker-compose-redis.yml up
+services:
+  redis-my-container:
+    container_name: redis-stack-server
+    image: redis/redis-stack-server
+    ports:
+      - "6379:6379"
