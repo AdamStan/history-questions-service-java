@@ -1,5 +1,6 @@
-package com.adam.stan.answers;
+package com.adam.stan.web;
 
+import com.adam.stan.answers.AnswersService;
 import com.adam.stan.domain.AnswerDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

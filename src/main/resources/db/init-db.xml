@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro 
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+	<changeSet id="1" author="AdamS">
+		<createTable tableName="Answers">
+			<column name="id" type="bigint">
+				<constraints primaryKey="true" primaryKeyName="answer_pk"/>
+			</column>
+			<column name="answer" type="varchar(128)"></column>
+			<column name="answer_type" type="varchar(32)"></column>
+		</createTable>
+		<createTable tableName="Questions">
+			<column name="id" type="bigint">
+				<constraints primaryKey="true" primaryKeyName="questions_pk"/>
+			</column>
+			<column name="question" type="varchar(256)"></column>
+			<column name="answer_id" type="bigint">
+				<constraints nullable="false" notNullConstraintName="answer_id_nn"/>
+			</column>
+		</createTable>
+		<addAutoIncrement tableName="Answers" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1"/>
+		<addAutoIncrement tableName="Questions" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1"/>
+		<addForeignKeyConstraint baseTableName="Questions" baseColumnNames="answer_id" 
+			constraintName="question_answer_id_fk" referencedTableName="Answers" referencedColumnNames="id"/>
+	</changeSet>
+</databaseChangeLog> 
