@@ -30,7 +30,7 @@ class QuestionsMapperImplTest {
         Answer answer = Answer.builder()
                 .id(2354L)
                 .answer("YES")
-                .type(AnswerType.WORD)
+                .type(AnswerType.PERSON)
                 .build();
         Question question = Question.builder()
                 .id(24L)

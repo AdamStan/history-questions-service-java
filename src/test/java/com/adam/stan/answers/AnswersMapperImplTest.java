@@ -16,7 +16,7 @@ class AnswersMapperImplTest {
         Answer answer = Answer.builder()
                 .id(23L)
                 .answer("Answer1")
-                .type(AnswerType.TEXT)
+                .type(AnswerType.PERSON)
                 .build();
         AnswerDto dto = mapper.answerToDto(answer);
         assertAll(

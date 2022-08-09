@@ -40,7 +40,7 @@ class AnswersServiceIntegrationTest {
 
     @Test
     void testCache_getAllAnswers() {
-        Answer anItem = Answer.builder().id(234L).answer("AA!").type(AnswerType.TEXT).build();
+        Answer anItem = Answer.builder().id(234L).answer("AA!").type(AnswerType.CITY).build();
         when(answersRepository.findAll()).thenReturn(List.of(anItem));
 
         List<AnswerDto> answersL1 = answersService.getAllAnswers();

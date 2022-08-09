@@ -30,13 +30,13 @@ class QuestionsControllerTest {
     @BeforeEach
     void setUp() {
         when(questionsService.getAllQuestions()).thenReturn(List.of(
-                QuestionDto.builder().id(1L).question("a?").answer("a!").answerType(AnswerType.TEXT.name()).build(),
-                QuestionDto.builder().id(2L).question("s?").answer("s!").answerType(AnswerType.TEXT.name()).build()
+                QuestionDto.builder().id(1L).question("a?").answer("a!").answerType(AnswerType.PERSON.name()).build(),
+                QuestionDto.builder().id(2L).question("s?").answer("s!").answerType(AnswerType.PERSON.name()).build()
         ));
     }
 
     @Test
     void testAllQuestions() throws Exception {
-        mockMvc.perform(get("/questions/all")).andDo(print()).andExpect(content().json("[{\"id\":1,\"question\":\"a?\",\"answer\":\"a!\",\"answerType\":\"TEXT\"},{\"id\":2,\"question\":\"s?\",\"answer\":\"s!\",\"answerType\":\"TEXT\"}]"));
+        mockMvc.perform(get("/questions/all")).andDo(print()).andExpect(content().json("[{\"id\":1,\"question\":\"a?\",\"answer\":\"a!\",\"answerType\":\"PERSON\"},{\"id\":2,\"question\":\"s?\",\"answer\":\"s!\",\"answerType\":\"PERSON\"}]"));
     }
 }

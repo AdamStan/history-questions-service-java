@@ -30,8 +30,8 @@ class AnswersControllerTest {
     @BeforeEach
     public void setUp() {
         when(service.getAllAnswers()).thenReturn(List.of(
-                AnswerDto.builder().id(1L).answer("A1").type(AnswerType.TEXT.name()).build(),
-                AnswerDto.builder().id(2L).answer("23").type(AnswerType.NUMBER.name()).build()
+                AnswerDto.builder().id(1L).answer("A1").type(AnswerType.CITY.name()).build(),
+                AnswerDto.builder().id(2L).answer("23").type(AnswerType.YEAR.name()).build()
         ));
     }
 
@@ -41,8 +41,8 @@ class AnswersControllerTest {
         assertAll(
                 () -> assertEquals("A1", answers[0].getAnswer()),
                 () -> assertEquals("23", answers[1].getAnswer()),
-                () -> assertEquals(AnswerType.TEXT.name(), answers[0].getType()),
-                () -> assertEquals(AnswerType.NUMBER.name(), answers[1].getType())
+                () -> assertEquals(AnswerType.CITY.name(), answers[0].getType()),
+                () -> assertEquals(AnswerType.YEAR.name(), answers[1].getType())
         );
     }
 }

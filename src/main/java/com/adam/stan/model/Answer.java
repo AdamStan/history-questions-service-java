@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,4 +30,7 @@ public class Answer {
     private AnswerType type;
     @OneToMany(mappedBy = "answer", fetch = FetchType.LAZY)
     private List<Question> questions;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "column_id", nullable = false)
+    private Category category;
 }

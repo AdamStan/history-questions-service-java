@@ -10,23 +10,30 @@
 	<changeSet id="1" author="AdamS">
 		<createTable tableName="Answers">
 			<column name="id" type="bigint">
-				<constraints primaryKey="true" primaryKeyName="answer_pk"/>
+				<constraints primaryKey="true"
+					primaryKeyName="answer_pk" />
 			</column>
 			<column name="answer" type="varchar(128)"></column>
 			<column name="answer_type" type="varchar(32)"></column>
 		</createTable>
 		<createTable tableName="Questions">
 			<column name="id" type="bigint">
-				<constraints primaryKey="true" primaryKeyName="questions_pk"/>
+				<constraints primaryKey="true"
+					primaryKeyName="questions_pk" />
 			</column>
 			<column name="question" type="varchar(256)"></column>
 			<column name="answer_id" type="bigint">
-				<constraints nullable="false" notNullConstraintName="answer_id_nn"/>
+				<constraints nullable="false"
+					notNullConstraintName="answer_id_nn" />
 			</column>
 		</createTable>
-		<addAutoIncrement tableName="Answers" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1"/>
-		<addAutoIncrement tableName="Questions" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1"/>
-		<addForeignKeyConstraint baseTableName="Questions" baseColumnNames="answer_id" 
-			constraintName="question_answer_id_fk" referencedTableName="Answers" referencedColumnNames="id"/>
+		<addAutoIncrement tableName="Answers" columnName="id"
+			columnDataType="bigint" startWith="1" incrementBy="1" />
+		<addAutoIncrement tableName="Questions"
+			columnName="id" columnDataType="bigint" startWith="1" incrementBy="1" />
+		<addForeignKeyConstraint
+			baseTableName="Questions" baseColumnNames="answer_id"
+			constraintName="question_answer_id_fk" referencedTableName="Answers"
+			referencedColumnNames="id" />
 	</changeSet>
 </databaseChangeLog> 

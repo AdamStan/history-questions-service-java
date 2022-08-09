@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro 
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+	<changeSet id="12" author="AdamS">
+		<createTable tableName="categories">
+			<column name="id" type="INTEGER">
+				<constraints primaryKey="true"
+					primaryKeyName="category_pk" />
+			</column>
+			<column name="period" type="varchar(40)"></column>
+			<column name="country" type="varchar(40)"></column>
+		</createTable>
+		<addAutoIncrement tableName="categories"
+			columnName="id" columnDataType="INTEGER" startWith="1"
+			incrementBy="1" />
+		<addColumn tableName="Answers">
+			<column name="category_id" type="integer"></column>
+		</addColumn>
+		<addForeignKeyConstraint
+			constraintName="cat_to_ans" referencedTableName="categories"
+			baseColumnNames="category_id" baseTableName="Answers"
+			referencedColumnNames="id" />
+	</changeSet>
+</databaseChangeLog> 
